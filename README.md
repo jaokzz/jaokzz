@@ -45,3 +45,28 @@
 ---
 
 ✨ Sempre explorando, aprendendo e construindo. E o mais importante, **evoluindo**!
+
+name: 🐍 Snake
+
+on:
+  # roda todo dia às 23:45 UTC (ajuste se quiser)
+  schedule:
+    - cron: "45 23 * * *"
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate snake SVGs
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/github-contribution-grid-snake.svg
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
