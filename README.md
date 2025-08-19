@@ -30,18 +30,17 @@
 
 ## 🌍 Onde me encontrar?
  <!-- Email -->
-  <a href="mailto:seuemail@exemplo.com">
+  <a href="mailto:jaokzk.22@gmail.com.com">
     <img src="https://img.shields.io/badge/Email-000000?style=for-the-badge&logo=gmail&logoColor=white" />
   </a>
 <!-- Instagram -->
-  <a href="https://instagram.com/seu_usuario">
+  <a href="https://instagram.com/jaokzk">
     <img src="https://img.shields.io/badge/Instagram-000000?style=for-the-badge&logo=instagram&logoColor=E4405F" />
   </a>
   <!-- Discord -->
-  <a href="https://discord.com/users/SEU_ID_AQUI">
-    <img src="https://img.shields.io/badge/Discord-000000?style=for-the-badge&logo=discord&logoColor=5865F2" />
-  </a>
-</p>
+  <a href="https://discord.com/users/987654321012345678">
+  <img src="https://img.shields.io/badge/Discord-000000?style=for-the-badge&logo=discord&logoColor=5865F2" />
+</a>
 
 ---
 
