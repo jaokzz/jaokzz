@@ -1,0 +1,108 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  GUEST
+  FREE
+  PREMIUM
+}
+
+enum SystemType {
+  MUSCULAR
+  SKELETAL
+  NERVOUS
+  CARDIOVASCULAR
+}
+
+enum BillingCycle {
+  MONTHLY
+  YEARLY
+  LIFETIME
+}
+
+model User {
+  id             String        @id @default(cuid())
+  email          String        @unique
+  displayName    String
+  passwordHash   String?
+  role           UserRole      @default(FREE)
+  level          Int           @default(1)
+  xp             Int           @default(0)
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+  quizResults    QuizResult[]
+  subscriptions  Subscription[]
+}
+
+model AnatomySystem {
+  id          String      @id @default(cuid())
+  name        String
+  description String
+  type        SystemType  @unique
+  structures  Structure[]
+}
+
+model Structure {
+  id          String        @id @default(cuid())
+  systemId    String
+  name        String
+  description String
+  function    String
+  origin      String
+  insertion   String
+  unityNodeId String
+  system      AnatomySystem  @relation(fields: [systemId], references: [id], onDelete: Cascade)
+}
+
+model QuizQuestion {
+  id            String   @id @default(cuid())
+  systemId       String
+  type           String
+  prompt         String
+  options        Json
+  correctAnswer  String
+  structureId    String?
+}
+
+model QuizResult {
+  id             String   @id @default(cuid())
+  userId         String
+  systemId       String
+  score          Int
+  accuracy       Float
+  timeSeconds    Int
+  xpGained       Int
+  correctAnswers Int
+  totalQuestions Int
+  createdAt      DateTime @default(now())
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model SubscriptionPlan {
+  id          String       @id @default(cuid())
+  code        String       @unique
+  name        String
+  cycle       BillingCycle
+  priceCents  Int
+  currency    String       @default("BRL")
+  highlighted Boolean      @default(false)
+  features    Json
+}
+
+model Subscription {
+  id             String   @id @default(cuid())
+  userId         String
+  planId         String
+  provider       String
+  providerRef    String   @unique
+  status         String
+  startedAt      DateTime
+  expiresAt      DateTime?
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
