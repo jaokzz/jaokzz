@@ -1,52 +1,53 @@
-# Olá, eu sou o **João Tuni**! 🐐  
+# ANATOMIX — SaaS-level Mobile Anatomy Platform
 
-💻 Desenvolvedor **Front-End** apaixonado por tecnologia e criação de interfaces modernas e funcionais.  
+Production-ready blueprint and implementation scaffold for **Flutter + Unity integrated** mobile app with a **NestJS + PostgreSQL** backend.
 
----
+## Why this stack
 
-## 🚀 Minhas Habilidades  
+- **Flutter**: single codebase for Android/iOS, great rendering performance, mature ecosystem for auth, payments and offline storage.
+- **Unity via Flutter bridge**: best option for complex and high-performance 3D anatomy interactions (rotation, isolation, part selection, shading, AR expansion).
+- **NestJS + PostgreSQL**: scalable backend architecture with clean module boundaries.
 
-<p align="left">
-  <!-- Frontend -->
-  <img src="https://img.shields.io/badge/Front%20End-000000?style=for-the-badge&logo=codepen&logoColor=white" />
-  
-  <!-- HTML -->
-  <img src="https://img.shields.io/badge/HTML5-000000?style=for-the-badge&logo=html5&logoColor=E34F26" />
-  
-  <!-- CSS -->
-  <img src="https://img.shields.io/badge/CSS4-000000?style=for-the-badge&logo=css3&logoColor=1572B6" />
-  
-  <!-- JavaScript -->
-  <img src="https://img.shields.io/badge/JavaScript-000000?style=for-the-badge&logo=javascript&logoColor=F7DF1E" />
-  
-  <!-- TypeScript -->
-  <img src="https://img.shields.io/badge/TypeScript-000000?style=for-the-badge&logo=typescript&logoColor=3178C6" />
-  
-  <!-- Node.js -->
-  <img src="https://img.shields.io/badge/Node.js-000000?style=for-the-badge&logo=node.js&logoColor=339933" />
-</p>
+## Repository structure
 
----
+```text
+mobile/                 # Flutter application (clean architecture, Riverpod)
+backend/                # NestJS API + Prisma schema
+docs/                   # API design, architecture decisions, deployment strategy
+```
 
-## 🌍 Onde me encontrar?
- <!-- Email -->
-  <a href="mailto:jaokzk.22@gmail.com.com">
-    <img src="https://img.shields.io/badge/Email-000000?style=for-the-badge&logo=gmail&logoColor=white" />
-  </a>
-<!-- Instagram -->
-  <a href="https://instagram.com/jaokzk">
-    <img src="https://img.shields.io/badge/Instagram-000000?style=for-the-badge&logo=instagram&logoColor=E4405F" />
-  </a>
-  <!-- Discord -->
-  <a href="https://discord.com/users/987654321012345678">
-  <img src="https://img.shields.io/badge/Discord-000000?style=for-the-badge&logo=discord&logoColor=5865F2" />
-</a>
+## Quick start
 
----
+### Mobile (Flutter)
 
-✨ Sempre explorando, aprendendo e construindo. E o mais importante, **evoluindo**!
+```bash
+cd mobile
+flutter pub get
+flutter run
+```
 
-#
+### Backend (NestJS)
 
-<img src="https://github.com/Anmol-Baranwal/Cool-GIFs-For-GitHub/assets/74038190/7b282ec6-fcc3-4600-90a7-2c3140549f58" width="400">
+```bash
+cd backend
+npm install
+cp .env.example .env
+npx prisma migrate dev
+npm run start:dev
+```
 
+## Implemented modules
+
+- Authentication (email/password + social placeholders + guest mode)
+- Subscription domain with monthly/yearly/lifetime plans and entitlement checks
+- Anatomy systems + structures model
+- Quiz/exam flow contracts (timer/scoring/feedback-ready)
+- Profile/progress contracts
+- Unity bridge interface for 3D interactions
+
+## Docs
+
+- [Architecture](docs/architecture.md)
+- [API design](docs/api-spec.md)
+- [Deployment](docs/deployment.md)
+- [Data model](docs/data-model.md)
